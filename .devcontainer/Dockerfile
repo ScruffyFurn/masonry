@@ -46,7 +46,7 @@ ENTRYPOINT ["/usr/bin/tini", "--" ]
 # CMD
 WORKDIR /
 COPY .devcontainer/databrick-env/environment.yml .
-RUN pip install --upgrade pip \
+RUN pip install --upgrade --no-cache-dir pip \
     && conda env create -f environment.yml \
     && echo '{}' > /root/.databricks-connect
 
