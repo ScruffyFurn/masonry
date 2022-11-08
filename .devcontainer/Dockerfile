@@ -48,7 +48,7 @@ WORKDIR /
 COPY .devcontainer/databrick-env/environment.yml .
 RUN conda env create -f environment.yml \
     && echo '{}' > /root/.databricks-connect
-    
+
 # VSCode DevContainers
 RUN apt-get update \
     && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \

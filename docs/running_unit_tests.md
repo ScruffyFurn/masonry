@@ -1,4 +1,4 @@
-make# Running pytest unit tests
+# Running pytest unit tests
 
 As part of the workflow solution and development container, the [pytest](https://docs.pytest.org/en/7.0.x/)
 unit testing and [Bandit](https://bandit.readthedocs.io/en/latest/) security testing frameworks have been
