@@ -1,4 +1,3 @@
-
 ---
 name: databrick-env
 channels:
@@ -7,7 +6,7 @@ dependencies:
   - python=3.7.5
   - pip
   - pip:
-      - databricks-connect==7.3.25
+      - databricks-connect==7.3.41
       - six
       - nutter
       - pytest

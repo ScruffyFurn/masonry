@@ -51,6 +51,6 @@
   },
   "extensions": [
     "ms-python.python",
-    "EditorConfig.EditorConfig",
+    "EditorConfig.EditorConfig"
   ]
 }

@@ -17,7 +17,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Make (used to run lint/testing/builds locally)
 RUN apt-get update --fix-missing && \
-    apt-get install --no-install-recommends -y make=latest && \
+    apt-get install --no-install-recommends -y make && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -26,7 +26,7 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /opt/conda/bin:$PATH
 RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
     apt-get update --fix-missing && \
-    apt-get install --no-install-recommends -y wget=latest bzip2=latest ca-certificates=latest curl=latest git=latest && \
+    apt-get install --no-install-recommends -y wget bzip2 ca-certificates curl git && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
@@ -46,19 +46,18 @@ ENTRYPOINT ["/usr/bin/tini", "--" ]
 # CMD
 WORKDIR /
 COPY .devcontainer/databrick-env/environment.yml .
-RUN pip install --no-cache-dir \
+RUN pip install --upgrade --no-cache-dir pip \
     && conda env create -f environment.yml \
-    && echo '{}' > /root/.databricks-connect \
-    && chmod +x .scripts/Lint.sh
+    && echo '{}' > /root/.databricks-connect
 
 # VSCode DevContainers
 RUN apt-get update \
-    && apt-get -y install --no-install-recommends apt-utils=latest dialog=latest 2>&1 \
+    && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
     && groupadd --gid $USER_GID $USERNAME \
     && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
     # Verify git, needed tools installed
-    && apt-get -y install --no-install-recommends git=latest iproute2=latest procps=latest curl=latest lsb-release=latest \
+    && apt-get -y install --no-install-recommends git iproute2 procps curl lsb-release \
 # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
