@@ -6,10 +6,11 @@ a [MakeFile](../src/Makefile) with all the necessary build steps has been provid
 The MakeFile first calls the __clean__ Make step first to clean up any previous builds, installs wheel, finally builds the library using the packaging information in the [setup.py](../src/setup.py) file.
 
 MakeFile build step:
+
 ```MakeFile
 build: clean
-	pip install wheel
-	python setup.py bdist_wheel
+    pip install wheel
+    python setup.py bdist_wheel
 ```
 
 ## Build steps
@@ -19,6 +20,7 @@ Before we can call the MakeFiles' build step, we must first provide a little inf
 The __setup.py__ file defines the information about the library. It contains a name, version, description, as well as any external requirements, and the definition of any method to be exported.
 
 Example library's __setup.py__ file:
+
 ```python
 """Setup.py script for packaging project."""
 from setuptools import setup, find_packages
@@ -37,9 +39,11 @@ if __name__ == '__main__':
         ]
     )
 ```
+
 Once we have populated the setup file we can build our library with one command.
 
 From the terminal, in the src directory, type the following:
+
 ```bash
 make build
 ```
