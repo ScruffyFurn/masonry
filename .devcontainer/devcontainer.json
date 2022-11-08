@@ -39,7 +39,7 @@
     }
   },
 
-  // Rather than storing/committing your bearer token here we recommend using a local 
+  // Rather than storing/committing your bearer token here we recommend using a local
   // variable and passing thru "DATABRICKS_API_TOKEN": "${localEnv:DatabricksToken}",
   // You can manually set these as environment variables if you prefer
   "containerEnv": {

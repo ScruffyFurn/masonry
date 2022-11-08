@@ -17,21 +17,19 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Make (used to run lint/testing/builds locally)
 RUN apt-get update --fix-missing && \
-    apt-get install --no-install-recommends -y make && \
+    apt-get install --no-install-recommends -y make=latest && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 # Mini Conda Start
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /opt/conda/bin:$PATH
-RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
-
-RUN apt-get update --fix-missing && \
-    apt-get install --no-install-recommends -y wget bzip2 ca-certificates curl git && \
+RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
+    apt-get update --fix-missing && \
+    apt-get install --no-install-recommends -y wget=latest bzip2=latest ca-certificates=latest curl=latest git=latest && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
+    rm -rf /var/lib/apt/lists/* && \
+    wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
     rm ~/miniconda.sh && \
     /opt/conda/bin/conda clean -tipsy && \
@@ -46,23 +44,20 @@ RUN chmod +x /usr/bin/tini
 ENTRYPOINT ["/usr/bin/tini", "--" ]
 
 # CMD
+WORKDIR /
 COPY .devcontainer/databrick-env/environment.yml .
-RUN pip install --upgrade pip \
+RUN pip install --no-cache-dir \
     && conda env create -f environment.yml \
     && echo '{}' > /root/.databricks-connect
 
 # VSCode DevContainers
 RUN apt-get update \
-    && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
+    && apt-get -y install --no-install-recommends apt-utils=latest dialog=latest 2>&1 \
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
     && groupadd --gid $USER_GID $USERNAME \
     && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
-    # [Optional] Add sudo support for the non-root user
-    && apt-get install --no-install-recommends -y sudo \
-    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
-    && chmod 0440 /etc/sudoers.d/$USERNAME \
     # Verify git, needed tools installed
-    && apt-get -y install --no-install-recommends git iproute2 procps curl lsb-release \
+    && apt-get -y install --no-install-recommends git=latest iproute2=latest procps=latest curl=latest lsb-release=latest \
 # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
