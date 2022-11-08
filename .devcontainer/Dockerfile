@@ -46,7 +46,8 @@ ENTRYPOINT ["/usr/bin/tini", "--" ]
 # CMD
 WORKDIR /
 COPY .devcontainer/databrick-env/environment.yml .
-RUN conda env create -f environment.yml \
+RUN pip install --upgrade pip \
+    && conda env create -f environment.yml \
     && echo '{}' > /root/.databricks-connect
 
 # VSCode DevContainers
