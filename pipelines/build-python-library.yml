@@ -1,0 +1,120 @@
+---
+resources:
+  - repo: self
+
+trigger:
+  - main
+  - refs/tags/v*
+
+variables:
+  python.version: "3.8"
+  major_minor: $[format('{0:yy}.{0:MM}', pipeline.startTime)]
+  counter_unique_key: $[format('{0}.example_library', variables.major_minor)]
+  patch: $[counter(variables.counter_unique_key, 0)]
+  fallback_tag: $(major_minor).dev$(patch)
+
+stages:
+  - stage: Test
+    jobs:
+      - job: Test
+        displayName: Test
+        steps:
+          - task: UsePythonVersion@0
+            displayName: "Use Python $(python.version)"
+            inputs:
+              versionSpec: "$(python.version)"
+
+          - script: conda env create --quiet --file environment.yml
+            displayName: Create Anaconda environment
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Masonry/.devcontainer/databrick-env/'
+
+          - script: |
+              eval "$(conda shell.bash hook)"
+              conda activate databrick-env
+              echo "y
+              $(WORKSPACE-REGION-URL)
+              $(CSE-DEVELOP-PAT)
+              $(EXISTING-CLUSTER-ID)
+              $(WORKSPACE-ORG-ID)
+              15001" | databricks-connect configure
+            displayName: 'Configure DBConnect'
+
+          - script: |
+              eval "$(conda shell.bash hook)"
+              conda activate databrick-env
+              pip install typed_ast && make lint
+            displayName: Lint
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Masonry/src/'
+
+          - script: |
+              eval "$(conda shell.bash hook)"
+              conda activate databrick-env
+              pip install pathlib2 && make test
+            displayName: Test
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Masonry/src/'
+
+          - task: PublishTestResults@2
+            displayName: "Publish Test Results junit/*"
+            condition: always()
+            inputs:
+              testResultsFiles: '$(System.DefaultWorkingDirectory)/Masonry/src/junit/*'
+              testRunTitle: "Python $(python.version)"
+
+  - stage: Build
+    dependsOn: Test
+    jobs:
+      - job: Build
+        displayName: Build
+        steps:
+          - task: UsePythonVersion@0
+            displayName: "Use Python $(python.version)"
+            inputs:
+              versionSpec: "$(python.version)"
+
+          - script: |
+              eval "$(conda shell.bash hook)"
+              conda activate databrick-env
+              pip install wheel
+            displayName: "Wheel"
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Masonry/src/'
+
+          - script: |
+              eval "$(conda shell.bash hook)"
+              conda activate databrick-env
+              # Get version from git tag (v1.0.0) -> (1.0.0)
+              git_tag=`git describe --abbrev=0 --tags | cut -d'v' -f 2`
+              echo "##vso[task.setvariable variable=git_tag]$git_tag"
+            displayName: Set GIT_TAG variable if tag is pushed
+            condition: contains(variables['Build.SourceBranch'], 'refs/tags/v')
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Masonry/src/'
+
+          - script: |
+              eval "$(conda shell.bash hook)"
+              conda activate databrick-env
+              # Get variables that are shared across jobs
+              GIT_TAG=$(git_tag)
+              FALLBACK_TAG=$(fallback_tag)
+              echo GIT TAG: $GIT_TAG, FALLBACK_TAG: $FALLBACK_TAG
+
+              # Export variable so python can access it
+              export PACKAGE_VERSION=${GIT_TAG:-${FALLBACK_TAG:-default}}
+              echo Version used in setup.py: $PACKAGE_VERSION
+
+              # Use PACKAGE_VERSION in setup()
+              python setup.py bdist_wheel
+            displayName: Build
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Masonry/src/'
+
+          - task: CopyFiles@2
+            displayName: Copy dist files
+            inputs:
+              sourceFolder: $(System.DefaultWorkingDirectory)/Masonry/src/dist/
+              contents: example_library*.whl
+              targetFolder: $(Build.ArtifactStagingDirectory)
+              flattenFolders: true
+
+          - task: PublishBuildArtifacts@1
+            displayName: PublishArtifact
+            inputs:
+              pathtoPublish: $(Build.ArtifactStagingDirectory)
+              ArtifactName: example_library.whl

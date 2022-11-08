@@ -1,0 +1,26 @@
+
+---
+name: databrick-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.7.5
+  - pip
+  - pip:
+      - databricks-connect==7.3.25
+      - six
+      - nutter
+      - pytest
+      - pylint
+      - pre-commit
+      - black
+      - mypy
+      - autopep8
+      - flake8
+      - bandit
+      - isort
+      - pydocstyle
+      - mock
+      - types-mock
+      - Pandas
+      - pyarrow

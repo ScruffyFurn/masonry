@@ -1,0 +1,56 @@
+{
+  "name": "databricks-env",
+    "build": {
+        "context": "..",
+        "dockerfile": "Dockerfile"
+    },
+
+  "settings": {
+    "python.pythonPath": "/opt/conda/envs/dbconnect/bin/python",
+    "python.venvPath": "/opt/conda/envs/dbconnect/lib/python3.7/site-packages/pyspark/jars",
+    "python.autoComplete.addBrackets": true,
+    "python.formatting.provider": "autopep8",
+    "python.jediEnabled": false,
+    "python.linting.mypyEnabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.pydocstyleEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": [
+      "databricks/tests"
+    ],
+    "files.watcherExclude": {
+      "**/build/**": true,
+      "**/dist/**": true,
+      "**/.ipynb_checkpoints/**": true,
+      "**/*.egg-info/**": true,
+      "**/.pytest_cache/**": true,
+      "**/__pycache__/**": true,
+      "**/.mypy_cache/**": true,
+      "**/.venv/**": true
+    },
+    "files.exclude": {
+      "**/.pytest_cache/**": true,
+      "**/.mypy_cache/**": true,
+      "**/__pycache__/**": true,
+      "**/*.egg-info/**": true
+    }
+  },
+
+  // Rather than storing/committing your bearer token here we recommend using a local
+  // variable and passing thru "DATABRICKS_API_TOKEN": "${localEnv:DatabricksToken}",
+  // You can manually set these as environment variables if you prefer
+  "containerEnv": {
+    "DATABRICKS_ADDRESS": "https://",
+    "DATABRICKS_API_TOKEN": "dapi***",
+    "DATABRICKS_CLUSTER_ID": "10**-",
+    "DATABRICKS_ORG_ID": "0",
+    "DATABRICKS_PORT": "0"
+  },
+  "extensions": [
+    "ms-python.python",
+    "EditorConfig.EditorConfig",
+  ]
+}
