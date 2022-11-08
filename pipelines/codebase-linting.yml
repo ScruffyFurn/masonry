@@ -1,5 +1,4 @@
 ---
-
 trigger:
   - main
 
@@ -10,7 +9,7 @@ jobs:
       vmImage: ubuntu-latest
     steps:
     - script: |
-        docker pull github/super-linter:v4.8.7
-        chmod 755 ./Masonry/scripts/Lint.sh
-        ./Masonry/scripts/Lint.sh $(System.DefaultWorkingDirectory)
+          docker pull github/super-linter:v4.8.7
+          chmod 755 ./Masonry/scripts/Lint.sh
+          ./Masonry/scripts/Lint.sh $(System.DefaultWorkingDirectory)
       displayName: 'Codebase linting checks with Super-Linter'

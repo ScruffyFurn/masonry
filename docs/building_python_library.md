@@ -1,6 +1,6 @@
 # Building a Python library
 
-To make the building and ultimately the deployment of a DataBricks Python library easier, 
+To make the building and ultimately the deployment of a DataBricks Python library easier,
 a [MakeFile](../src/Makefile) with all the necessary build steps has been provided.
 
 The MakeFile first calls the __clean__ Make step first to clean up any previous builds, installs wheel, finally builds the library using the packaging information in the [setup.py](../src/setup.py) file.

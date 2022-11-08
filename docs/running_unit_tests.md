@@ -6,7 +6,10 @@ installed and configured.
 
 To make running the unit and security tests a little easier, a "make test" step, in the projects [MakeFile](../src/Makefile) has been provided.
 
-The MakeFile test step will call any pytest(s) located in the __src/tests/__ directory. The pytest call will also generate a __test-results.xml__ juintxml file. The test step will also call Bandit to run security checks against any python files located in the library's source files (src/example_library in the examples' case). The Bandit call will also generate a __security.xml__ junit style result file.
+The MakeFile test step will call any pytest(s) located in the __src/tests/__ directory.
+The pytest call will also generate a __test-results.xml__ juintxml file.
+The test step will also call Bandit to run security checks against any python files located
+in the library's source files (src/example_library in the examples' case). The Bandit call will also generate a __security.xml__ junit style result file.
 
 MakeFile test step:
 
