@@ -48,7 +48,8 @@ WORKDIR /
 COPY .devcontainer/databrick-env/environment.yml .
 RUN pip install --no-cache-dir \
     && conda env create -f environment.yml \
-    && echo '{}' > /root/.databricks-connect
+    && echo '{}' > /root/.databricks-connect \
+    && chmod +x .scripts/Lint.sh
 
 # VSCode DevContainers
 RUN apt-get update \
