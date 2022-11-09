@@ -1,3 +1,7 @@
 # An example workflow
 
-![token](images/workflow.svg)
+## Full workflow
+![Full workflow](images/workflow.svg)
+
+## Azure DataBricks Notebook/Library usage
+![Notebook](images/databricks.svg)
