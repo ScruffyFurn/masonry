@@ -1,0 +1,6 @@
+{
+  "author_name": "Microsoft",
+  "project_name": "DataBricks Library",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "project_short_description": "DataBricks Library example contains all the boilerplate you need to create a Databricks Python package."
+ }
