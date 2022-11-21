@@ -1,6 +1,0 @@
----
-ignored:
-  # Pin versions in apt-get install
-  - DL3008
-  # Pin version in pip install
-  - DL3013
