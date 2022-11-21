@@ -1,9 +1,6 @@
 {
-  "name": "databricks-env",
-    "build": {
-        "context": "..",
-        "dockerfile": "Dockerfile"
-    },
+  "name": "masonry-10.4LTS",
+  "image": "docker.io/scruffyfurn/masonry:v0.0.1-10.4LTS",
 
   "settings": {
     "python.pythonPath": "/opt/conda/envs/dbconnect/bin/python",
