@@ -1,5 +1,5 @@
 ---
-name: databrick-env
+name: masonry-10.4LTS
 channels:
   - conda-forge
 dependencies:
@@ -24,3 +24,9 @@ dependencies:
       - Pandas
       - pyarrow
       - cookiecutter
+variables:
+  DATABRICKS_ADDRESS: https
+  DATABRICKS_API_TOKEN: dapi*
+  DATABRICKS_CLUSTER_ID: 1108-***
+  DATABRICKS_ORG_ID: 6872*
+  DATABRICKS_PORT: 8787

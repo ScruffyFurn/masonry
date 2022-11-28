@@ -4,6 +4,9 @@
         "context": "..",
         "dockerfile": "Dockerfile"
     },
+  "runArgs": [
+      "--env-file", ".devcontainer/env_file"
+  ],
   "settings": {
     "python.pythonPath": "/opt/conda/envs/dbconnect/bin/python",
     "python.venvPath": "/opt/conda/envs/dbconnect/lib/python3.8/site-packages/pyspark/jars",
@@ -37,16 +40,12 @@
       "**/*.egg-info/**": true
     }
   },
-
-  // Rather than storing/committing your bearer token here we recommend using a local
-  // variable and passing thru "DATABRICKS_API_TOKEN": "${localEnv:DatabricksToken}",
-  // You can manually set these as environment variables if you prefer
   "containerEnv": {
-    "DATABRICKS_ADDRESS": "https://",
-    "DATABRICKS_API_TOKEN": "dapi***",
-    "DATABRICKS_CLUSTER_ID": "10**-",
-    "DATABRICKS_ORG_ID": "0",
-    "DATABRICKS_PORT": "0"
+    "DATABRICKS_ADDRESS": "${localEnv:DATABRICKS_ADDRESS}",
+    "DATABRICKS_API_TOKEN": "${localEnv:DATABRICKS_API_TOKEN}",
+    "DATABRICKS_CLUSTER_ID": "${localEnv:DATABRICKS_CLUSTER_ID}",
+    "DATABRICKS_ORG_ID": "${localEnv:DATABRICKS_ORG_ID}",
+    "DATABRICKS_PORT": "${localEnv:DATABRICKS_PORT}"
   },
   "extensions": [
     "ms-python.python",
