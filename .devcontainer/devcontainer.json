@@ -5,7 +5,7 @@
         "dockerfile": "Dockerfile"
     },
   "runArgs": [
-      "--env-file", ".devcontainer/env_file"
+      "--env-file", ".devcontainer/.env"
   ],
   "settings": {
     "python.pythonPath": "/opt/conda/envs/dbconnect/bin/python",
