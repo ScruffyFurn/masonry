@@ -1,12 +1,9 @@
 {
   "name": "masonry-10.4LTS",
-    "build": {
-        "context": "..",
-        "dockerfile": "Dockerfile"
-    },
-  "runArgs": [
-      "--env-file", ".devcontainer/.env"
-  ],
+  "build": {
+      "context": "..",
+      "dockerfile": "Dockerfile"
+  },
   "settings": {
     "python.pythonPath": "/opt/conda/envs/dbconnect/bin/python",
     "python.venvPath": "/opt/conda/envs/dbconnect/lib/python3.8/site-packages/pyspark/jars",
@@ -40,15 +37,12 @@
       "**/*.egg-info/**": true
     }
   },
-  "containerEnv": {
-    "DATABRICKS_ADDRESS": "${localEnv:DATABRICKS_ADDRESS}",
-    "DATABRICKS_API_TOKEN": "${localEnv:DATABRICKS_API_TOKEN}",
-    "DATABRICKS_CLUSTER_ID": "${localEnv:DATABRICKS_CLUSTER_ID}",
-    "DATABRICKS_ORG_ID": "${localEnv:DATABRICKS_ORG_ID}",
-    "DATABRICKS_PORT": "${localEnv:DATABRICKS_PORT}"
-  },
   "extensions": [
     "ms-python.python",
     "EditorConfig.EditorConfig"
+  ],
+  "remoteUser": "mason",
+  "runArgs": [
+    "--env-file", ".devcontainer/.env"
   ]
 }

@@ -1,6 +1,5 @@
 databricks-connect==10.4.*
 six
-nutter
 pytest
 pylint
 pre-commit
