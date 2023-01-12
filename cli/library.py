@@ -2,6 +2,7 @@ import click
 import subprocess
 from cookiecutter.main import cookiecutter
 
+
 # Library group
 @click.group()
 def library():
@@ -40,6 +41,7 @@ def create(name, desc, author, dir):
         output_dir=dir,
         extra_context=config_object,
     )
+
 
 # Build group
 @click.command()

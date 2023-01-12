@@ -6,3 +6,6 @@ ignored:
   - DL3013
   # Sudo usage
   - DL3004
+  # Temp
+  - DL3003
+  - DL3059
