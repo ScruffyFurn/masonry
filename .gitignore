@@ -131,3 +131,6 @@ dmypy.json
 
 # Dependency directories
 node_modules/
+
+# Local linting settings
+.github/super-linter.env
