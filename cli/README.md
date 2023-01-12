@@ -12,12 +12,13 @@ The Masonry CLI is a toolchain that can be used to generate, build and test Data
 - [Getting Started](#getting-started)
 - [Useage](#usage)
 - [Support](#support)
-    - [Stay in touch](#stay-in-touch)
-    - [licence](#license)
-
-
+  - [Stay in touch](#stay-in-touch)
+  - [licence](#license)
 
 # Support[](#support)
+
+## Getting Started[](#getting-started)
+## Usage[](#usage)
 
 ## Stay in touch[](#stay-in-touch)
 

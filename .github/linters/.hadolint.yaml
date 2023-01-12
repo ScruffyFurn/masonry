@@ -4,3 +4,5 @@ ignored:
   - DL3008
   # Pin version in pip install
   - DL3013
+  # Sudo usage
+  - DL3004
