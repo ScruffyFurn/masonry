@@ -1,5 +1,6 @@
-import click
 import subprocess
+
+import click
 from cookiecutter.main import cookiecutter
 
 
@@ -21,8 +22,12 @@ def library():
     default="A new DataBricks Library",
     help="Simple description of the python library being created",
 )
-@click.option("--author", default="Masonry", help="Name of the \
-    python library creator")
+@click.option(
+    "--author",
+    default="Masonry",
+    help="Name of the \
+    python library creator",
+)
 @click.option(
     "--dir",
     default="./",

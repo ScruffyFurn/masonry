@@ -1,10 +1,11 @@
-
 import click
+
 
 # Notebook group
 @click.group()
 def notebook():
     pass
+
 
 # Create a new DataBrick notebook
 @click.command()
@@ -19,7 +20,6 @@ def notebook():
     help="Location to create the new Databricks orchistrator notebook \
          being created",
 )
-
 def create(name, dir):
     click.echo("Creating a new DataBricks orchistrator notebook..")
     try:
@@ -27,5 +27,6 @@ def create(name, dir):
             file.write("Create a new text file!")
     except FileNotFoundError:
         click.echo("The" + dir + " directory does not exist")
+
 
 notebook.add_command(create)
