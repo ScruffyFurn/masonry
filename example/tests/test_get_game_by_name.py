@@ -4,6 +4,7 @@ from pyspark.sql import SparkSession
 
 spark = SparkSession.builder.getOrCreate()
 
+
 class get_game_by_name_tests(unittest.TestCase):
     # Load csv file from remote DataBricks file storage
     def mock_gamedata_df(self):
