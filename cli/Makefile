@@ -6,7 +6,7 @@ lint:
 	isort ./masonry
 	black ./masonry
 	mypy ./masonry --ignore-missing-imports
-	flake8 ./masonry
+	flake8 ./masonry --ignore=$(shell cat .flakeignore)
 
 dev:
 	pip install -e .

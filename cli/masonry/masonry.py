@@ -1,7 +1,7 @@
 # Imports
 import click
-from masonry import library
-from masonry import notebook
+
+from masonry import library, notebook
 
 
 @click.group()
