@@ -1,7 +1,6 @@
 # Imports
 import click
-
-from masonry import library, notebook
+import masonry
 
 
 @click.group()
@@ -9,8 +8,8 @@ def cli():
     pass
 
 
-cli.add_command(library.library)
-cli.add_command(notebook.notebook)
+cli.add_command(masonry.library.library)
+cli.add_command(masonry.notebook.notebook)
 
 if __name__ == "__main__":
     cli()
