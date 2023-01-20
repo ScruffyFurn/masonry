@@ -2,6 +2,8 @@
 
 [![GitHub Super-Linter](https://github.com/scruffyfurn/masonry/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
+[![Masonry CLI](https://github.com/ScruffyFurn/masonry/actions/workflows/cli.yml/badge.svg?branch=scruffyfurn%2Fcli)](https://github.com/ScruffyFurn/masonry/actions/workflows/cli.yml)
+
 ## Description
 
 A complete development environment for Azure DataBricks workflows.
