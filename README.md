@@ -18,7 +18,7 @@ This solution includes a development container with all the required tooling to 
 
     **NOTE:** 'LITE' versions use an exposed requirements.txt file to complete environment.
 
-- To start follow [installing prerequisites documentation](./docs/install_prerequisites.md) to setup the local environnement.
+- Next follow the [installing prerequisites documentation](./docs/install_prerequisites.md) to setup the local environnement.
 
 - [Configure the Azure DataBricks cluster](./docs/configure_cluster.md) for connection.
 
