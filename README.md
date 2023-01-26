@@ -14,15 +14,23 @@ This solution includes a development container with all the required tooling to 
 
 ## Getting started
 
-To start follow [installing prerequisites documentation](./docs/install_prerequisites.md) to setup the local environnement [using the dev container] documentation
+- To start follow [installing prerequisites documentation](./docs/install_prerequisites.md) to setup the local environnement.
 
-Next follow the [using the dev container](./docs/using_dev_contianer.md) documentation to start up the development environment.
+- Gather the required information by [obtaining cluster information](./docs/obtaining_cluster_information.md).
 
-See [example workflow](./docs/example_workflow.md) for a complete workflow example.
+- Next follow the [using the dev container](./docs/using_dev_contianer.md) documentation to start up the development environment.
+
+## Using Masonry
 
 See [building python library](./docs/building_python_library.md) for building python libraries.
 
-## Support
+See [running unit tests](./docs/running_unit_tests.md) for information on running unit tests.
+
+See [run full code base linting locally](./docs/local_linting.md) for steps on running a full codebase lint solution.
+
+## More information
+
+See [masonry workflow](./docs/example_workflow.md) for a complete workflow with CI/CD example.
 
 ## Stay in touch
 
