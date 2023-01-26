@@ -14,7 +14,13 @@ This solution includes a development container with all the required tooling to 
 
 ## Getting started
 
+- Download and unpack the [Release](https://github.com/ScruffyFurn/masonry/releases) that matches the DataBricks runtime of your cluster. (For example Masonry v0.0.*-10.4-LTS for Runtime 10.4 LTS)
+
+    **NOTE:** 'LITE' versions use an exposed requirements.txt file to complete environment.
+
 - To start follow [installing prerequisites documentation](./docs/install_prerequisites.md) to setup the local environnement.
+
+- [Configure the Azure DataBricks cluster](./docs/configure_cluster.md) for connection.
 
 - Gather the required information by [obtaining cluster information](./docs/obtaining_cluster_information.md).
 
@@ -30,7 +36,7 @@ See [run full code base linting locally](./docs/local_linting.md) for steps on r
 
 ## More information
 
-See [masonry workflow](./docs/example_workflow.md) for a complete workflow with CI/CD example.
+See [masonry workflow](./docs/example_workflow.md) for a complete workflow overview with CI/CD example.
 
 ## Stay in touch
 
