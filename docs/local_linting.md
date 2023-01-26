@@ -1,4 +1,4 @@
-# Linting the codebase locally
+# Linting the code base locally
 
 In order to run the Super-Linter linter locally, you will need to have
 Docker or Docker Desktop installed. This document covers the steps to install Docker / Docker Desktop
