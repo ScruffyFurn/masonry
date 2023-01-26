@@ -1,5 +1,12 @@
 # Opening the development container
 
+## Edit .env file
+
+- Rename .env_example to .env
+- Insert your clusters' values in the .env file. [See obtaining_cluster_information](obtaining_cluster_information.md) for steps on retrieving these values.
+
+## Start devcontainer (Reopen in container)
+
 **NOTE:**
 
 **To use the provided development container, you will need to open the

@@ -14,15 +14,33 @@ This solution includes a development container with all the required tooling to 
 
 ## Getting started
 
-To start follow [installing prerequisites documentation](./docs/install_prerequisites.md) to setup the local environnement [using the dev container] documentation
+- Download and unpack the [Release](https://github.com/ScruffyFurn/masonry/releases) that matches the DataBricks runtime of your cluster. (For example Masonry v0.0.*-10.4-LTS for Runtime 10.4 LTS)
 
-Next follow the [using the dev container](./docs/using_dev_contianer.md) documentation to start up the development environment.
+    **NOTE:** 'LITE' versions use an exposed requirements.txt file to complete environment.
 
-See [example workflow](./docs/example_workflow.md) for a complete workflow example.
+- To start follow [installing prerequisites documentation](./docs/install_prerequisites.md) to setup the local environnement.
+
+- [Configure the Azure DataBricks cluster](./docs/configure_cluster.md) for connection.
+
+- Gather the required information by [obtaining cluster information](./docs/obtaining_cluster_information.md).
+
+- Next follow the [using the dev container](./docs/using_dev_contianer.md) documentation to start up the development environment.
+
+## Using Masonry
 
 See [building python library](./docs/building_python_library.md) for building python libraries.
 
-## Support
+See [running unit tests](./docs/running_unit_tests.md) for information on running unit tests.
+
+See [run full code base linting locally](./docs/local_linting.md) for steps on running a full code base lint solution.
+
+## Development Roadmap
+
+See [Project Roadmap](https://github.com/users/ScruffyFurn/projects/5/views/4) for an up to date development roadmap.
+
+## More information
+
+See [masonry workflow](./docs/example_workflow.md) for a complete workflow overview with CI/CD example.
 
 ## Stay in touch
 
