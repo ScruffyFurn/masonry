@@ -32,7 +32,7 @@ See [building python library](./docs/building_python_library.md) for building py
 
 See [running unit tests](./docs/running_unit_tests.md) for information on running unit tests.
 
-See [run full code base linting locally](./docs/local_linting.md) for steps on running a full codebase lint solution.
+See [run full code base linting locally](./docs/local_linting.md) for steps on running a full code base lint solution.
 
 ## Development Roadmap
 
