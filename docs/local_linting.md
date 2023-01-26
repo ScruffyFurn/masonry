@@ -2,11 +2,11 @@
 
 In order to run the Super-Linter linter locally, you will need to have
 Docker or Docker Desktop installed. This document covers the steps to install Docker / Docker Desktop
-and run the provided scripts to lint the full codebase.
+and run the provided scripts to lint the full code base.
 
 ## Run the linting script
 
-Once Docker has been installed, you can lint the entire codebase with one command:
+Once Docker has been installed, you can lint the entire code base with one command:
 
 ### Windows
 
