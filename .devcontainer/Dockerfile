@@ -1,6 +1,1 @@
-FROM  --platform=linux/amd64 masonrydb/masonry:base
-
-# Install Python requirements
-WORKDIR /
-COPY .devcontainer/requirements.txt .
-RUN sudo pip install -r requirements.txt
+FROM  --platform=linux/amd64 masonrydb/masonry:10.4LTS
