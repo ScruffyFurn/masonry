@@ -3,9 +3,12 @@
 <!-- markdownlint-enable MD041 -->
 # Masonry
 
-## Getting started [](#getting-started)
+## What is Masonry
 
-1. Rename .env_example to .env
-2. Insert your clusters' values in the .env file
-3. Start devcontainer (Reopen in container)
+A complete development environment for Azure DataBricks workflows.
 
+This solution includes a development container with all the required tooling to connect, test, and deploy python based DataBrick workflows.
+
+## Usage
+
+For up to date usage instructions see the [Masonry Documentation](https://github.com/ScruffyFurn/masonry#readme).
