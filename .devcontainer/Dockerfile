@@ -1,1 +1,1 @@
-FROM  --platform=linux/amd64 masonrydb/masonry:10.4LTS
+FROM  --platform=linux/amd64 masonrydb/masonry:11.4LTS
