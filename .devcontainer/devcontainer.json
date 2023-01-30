@@ -1,5 +1,5 @@
 {
-  "name": "masonry-11.4LTS",
+  "name": "masonry-11.3LTS",
   "build": {
       "context": "..",
       "dockerfile": "Dockerfile"
