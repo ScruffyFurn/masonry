@@ -1,0 +1,17 @@
+databricks-connect==11.3.0b0
+databricks-cli
+nutter
+pytest
+pylint
+pre-commit
+black
+mypy
+autopep8
+flake8
+bandit
+isort
+pydocstyle
+mock
+types-mock
+Pandas
+pyarrow
