@@ -42,7 +42,7 @@ def create(name, desc, author, dir):
         "project_short_description": desc,
     }
     cookiecutter(
-        "https://github.com/ScruffyFurn/masonry-slug",
+        "https://github.com/ScruffyFurn/masonry-slug-lts",
         output_dir=dir,
         extra_context=config_object,
     )
