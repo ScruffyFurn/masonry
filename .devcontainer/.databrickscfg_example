@@ -1,0 +1,4 @@
+[DEFAULT]
+host = https://#####.azuredatabricks.net/
+token = dapi####
+cluster_id = ####-######-########

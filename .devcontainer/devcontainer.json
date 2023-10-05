@@ -41,8 +41,5 @@
     "ms-python.python",
     "EditorConfig.EditorConfig"
   ],
-  "remoteUser": "mason",
-  "runArgs": [
-    "--env-file", ".devcontainer/.env"
-  ]
+  "remoteUser": "mason"
 }
