@@ -6,7 +6,7 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
     requirements = fh.read()
 setup(
     name="masonry",
-    version="0.0.6",
+    version="0.0.7",
     author="Mickey MacDonald ",
     author_email="Mickey MacDonald",
     license="MIT",
@@ -18,13 +18,13 @@ setup(
     py_modules=["masonry", "app"],
     packages=find_packages(),
     install_requires=[requirements],
-    python_requires=">=3.7",
+    python_requires=">=3.10",
     classifiers=[
-        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.10",
         "Operating System :: OS Independent",
     ],
     entry_points="""
         [console_scripts]
-        masonry=masonry:cli
+        masonry=masonry.masonry:cli
     """,
 )

@@ -1,1 +1,1 @@
-from .masonry import masonry
+import masonry
