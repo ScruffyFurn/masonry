@@ -35,7 +35,7 @@ RUN sudo python3.10 get-pip.py
 RUN yay -Syu --needed --noconfirm azure-cli
 
 # Install Masonry cli
-COPY ./masonry-0.0.2-py3-none-any.whl masonry-0.0.2-py3-none-any.whl
+COPY ./masonry-0.0.6-py3-none-any.whl masonry-0.0.6-py3-none-any.whl
 RUN sudo pip install masonry-0.0.2-py3-none-any.whl \
     && echo '{}' > /home/mason/.databricks-connect
 

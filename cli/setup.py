@@ -6,7 +6,7 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
     requirements = fh.read()
 setup(
     name="masonry",
-    version="0.0.2",
+    version="0.0.6",
     author="Mickey MacDonald ",
     author_email="Mickey MacDonald",
     license="MIT",
